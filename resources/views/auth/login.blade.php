@@ -1,5 +1,10 @@
 <x-auth-layout>
     <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Login</h1>
+    @isset($successMessage)
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 text-sm">
+        {{ $successMessage }}
+    </div>
+    @endisset
     <form action="#" method="post" class="space-y-5">
         @csrf
         <div>
