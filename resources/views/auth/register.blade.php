@@ -18,8 +18,8 @@
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
         </div>
         <div>
-            <button type="submit" class="w-full bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition">
-                Register
+            <button type="submit" class="w-full bg-black text-white font-medium py-2 rounded-md hover:bg-gray-900 transition">
+              Register
             </button>
         </div>
       </form>
