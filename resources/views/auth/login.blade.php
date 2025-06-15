@@ -5,7 +5,7 @@
         {{ $successMessage }}
     </div>
     @endisset
-    <form action="#" method="post" class="space-y-5">
+    <form action="{{ route('authenticate') }}" method="post" class="space-y-5">
         @csrf
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>

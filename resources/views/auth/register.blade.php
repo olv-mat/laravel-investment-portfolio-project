@@ -1,14 +1,5 @@
 <x-auth-layout>
     <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Register</h1>
-    @if ($errors->any())
-        <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl mb-6 w-full max-w-lg text-base shadow-sm">
-            <ul class="list-disc list-inside space-y-2">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <form action="{{ route('create') }}" method="post" class="space-y-5">
         @csrf
         <div>

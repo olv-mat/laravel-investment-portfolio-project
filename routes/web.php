@@ -6,7 +6,8 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [UserController::class, 'login'])->name('login');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'create'])->name('create');
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
