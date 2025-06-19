@@ -1,6 +1,6 @@
 <x-auth-layout>
     <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Register</h1>
-    <form action="{{ route('create') }}" method="post" class="space-y-5">
+    <form action="{{ route('register.store') }}" method="post" class="space-y-5">
         @csrf
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -25,6 +25,6 @@
       </form>
       <p class="text-sm text-center text-gray-500 mt-6">
         Already have an account?
-        <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Login</a>
+        <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Login.</a>
       </p>
 </x-auth-layout>

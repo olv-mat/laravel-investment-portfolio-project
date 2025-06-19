@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\{
     RegisterRequest,
     LoginRequest
@@ -12,40 +12,40 @@ use Illuminate\Support\Facades\{
     Auth,
     Hash
 };
-use App\Models\User;
 
 class UserController extends Controller
 {
-    public function login(Request $request)
+    public function loginView()
     {
-        $successMessage = $request->session()->get('auth.success.message');
-        return view('auth/login')->with([
-            'successMessage' => $successMessage
-        ]);
+        return view('auth/login');
     }
 
-    public function authenticate(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
-        $credentials = $request->only(["email", "password"]);
+        $credentials = $request->only(['email', 'password']);
         if (!Auth::attempt($credentials)) {
-            return back()->withErrors(["login" => "Invalid Credentials."]);
+            return back()->withErrors(['login' => 'Invalid Credentials.']);
         }
-        return to_route("dashboard");
-        
+        return to_route('dashboard');
+    }
+    
+    public function logout()
+    {
+        Auth::logout();
+        return to_route('dashboard');
     }
 
-    public function register()
+    public function registerView()
     {
         return view('auth/register');
     }
 
-    public function create(RegisterRequest $request)
+    public function register(RegisterRequest $request)
     {
         $userData = $request->all();
         $userData['password'] = Hash::make($userData['password']);
         $user = User::create($userData);
-        return to_route('login')->with([
-            'auth.success.message' => 'User created successfully.'
-        ]);
+        Auth::login($user);
+        return to_route('dashboard');
     }
 }

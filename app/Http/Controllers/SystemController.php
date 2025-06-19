@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 
 class SystemController extends Controller
 {
-    public function dashboard()
+    public function dashboardView()
     {
         return view('dashboard');
     }
 
-    public function favorites()
+    public function favoritesView()
     {
         return view('favorites');
     }
 
-    public function lists()
+    public function listsView()
     {
         return view('lists');
     }

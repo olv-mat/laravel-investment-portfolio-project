@@ -1,11 +1,6 @@
 <x-auth-layout>
     <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Login</h1>
-    @isset($successMessage)
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 text-sm">
-        {{ $successMessage }}
-    </div>
-    @endisset
-    <form action="{{ route('authenticate') }}" method="post" class="space-y-5">
+    <form action="{{ route('login.attempt') }}" method="post" class="space-y-5">
         @csrf
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -25,6 +20,6 @@
       </form>
       <p class="text-sm text-center text-gray-500 mt-6">
         Doesn't have an account?
-        <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Register</a>
+        <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Register.</a>
       </p>
 </x-auth-layout>

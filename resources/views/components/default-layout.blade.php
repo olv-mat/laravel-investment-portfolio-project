@@ -10,10 +10,15 @@
                     </a>
                 </h1>
                 @auth
-                <a href="" class="inline-block px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md shadow-sm hover:bg-red-700 transition">Logout</a>
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="inline-block px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md shadow-sm hover:bg-red-700 transition">
+                            Logout
+                        </button>
+                    </form>
                 @endauth
                 @guest
-                <a href="" class="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 transition">Login</a>
+                <a href="{{ route('login') }}" class="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 transition">Login</a>
                 @endguest
             </div>
         </header>
