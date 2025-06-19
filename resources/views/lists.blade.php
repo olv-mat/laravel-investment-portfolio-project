@@ -1,8 +1,8 @@
 <x-default-layout>
     <div class="bg-white p-6 rounded-md shadow-sm">
-        <div class="flex items-center justify-between mb-4">
-            <h2 class="text-lg font-semibold text-gray-800">Your Custom Lists</h2>
-            <a href="#" class="inline-block px-4 py-2 text-sm font-medium text-white bg-black rounded-md shadow-sm hover:bg-gray-900 transition">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800">Your Custom Lists</h2>
+            <a href="#" class="px-5 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 transition">
                 Create New List
             </a>
         </div>

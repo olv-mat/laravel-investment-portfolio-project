@@ -1,6 +1,6 @@
 <x-default-layout>
     <div class="bg-white p-6 rounded-md shadow-sm">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Your Favorite Stocks</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Favorite Stocks</h2>
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-50 text-gray-600 uppercase tracking-wider">

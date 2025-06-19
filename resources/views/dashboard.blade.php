@@ -1,16 +1,41 @@
 <x-default-layout>
     <div class="bg-white p-6 rounded-md shadow-sm mb-6">
         @auth
-            <h2 class="text-lg font-semibold text-gray-800 mb-2">Welcome, {{ Auth::user()->name }}!</h2>
-            <p class="text-gray-600 text-sm">
-                You have <span class="font-medium">3</span> lists and <span class="font-medium">7</span> favorites.
-            </p>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold text-gray-800">Welcome, {{ Auth::user()->name }}!</h2>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md shadow-sm hover:bg-red-700 transition">
+                    Logout
+                </button>
+            </form>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+            <div class="bg-gray-100 p-4 rounded-md text-center shadow-sm">
+                <p class="text-sm text-gray-500">Total Favorites</p>
+                <p class="text-2xl font-bold text-gray-800">7</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-md text-center shadow-sm">
+                <p class="text-sm text-gray-500">Total Lists</p>
+                <p class="text-2xl font-bold text-gray-800">3</p>
+            </div>
+        </div>
         @endauth
         @guest
-            <h2 class="text-lg font-semibold text-gray-800 mb-2">Welcome to Investment Portfolio</h2>
-            <p class="text-gray-600 text-sm">
-                Please <a href="#" class="text-blue-600 hover:underline">log in</a> to view your lists and favorites.
-            </p>
+            <div class="rounded-md p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Welcome to Investment Portfolio!</h2>
+                <p class="text-gray-700 mb-6">
+                    To view your lists and favorites, please log in or register.
+                </p>
+                <div class="flex gap-4">
+                    <a href="{{ route('login') }}" class="px-5 py-2.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition">
+                        Login
+                    </a>
+                    <a href="{{ route('register') }}" class="px-5 py-2.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition">
+                        Register
+                    </a>
+                </div>
+            </div>
         @endguest
     </div>
     <div class="bg-white p-4 rounded-md shadow-sm mb-6">
